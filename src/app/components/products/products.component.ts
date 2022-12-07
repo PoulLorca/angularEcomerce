@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Product, CreateProductDTO, UpdateProductDTO } from '../models/product.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -63,13 +64,14 @@ export class ProductsComponent implements OnInit {
       this.statusDetail = 'error'      
       Swal.fire({
         title:'Error!',
-        text: errorMsg.statusText,
+        text: errorMsg,
         icon:'error',
         confirmButtonText: 'Ok'
       })
     }
   })
   }
+  
 
   createNewProduct(){
     const product: CreateProductDTO = {
@@ -111,7 +113,7 @@ export class ProductsComponent implements OnInit {
   }
 
   loadMore(){
-    this.productsService.getProductsByPage(this.limit, this.offset)
+    this.productsService.getAllProducts(this.limit, this.offset)
     .subscribe(data => {
       this.products = this.products.concat(data);
       this.offset += this.limit;
