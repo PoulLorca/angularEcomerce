@@ -23,6 +23,29 @@ const routes: Routes = [
   {
     path:'category',
     component: CategoryComponent
+  },
+  {
+    path:'my-cart',
+    component: MyCartComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'register',
+    component:RegisterComponent
+  },
+  {
+    path:'recovery',
+    component:RecoveryComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
+  },
+  {
+    
   }
 ];
 
