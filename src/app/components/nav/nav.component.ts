@@ -12,8 +12,7 @@ import { User } from '../models/user.model';
 export class NavComponent implements OnInit {
 
   activeMenu = false;
-  counter =  0;
-  token = '';
+  counter =  0;  
   profile: User | null = null;
 
   constructor(
@@ -31,20 +30,17 @@ export class NavComponent implements OnInit {
     this.activeMenu = !this.activeMenu;
   }
 
-  login(){
-    this.authService.login('dev@dev.com', '123456')
-    .subscribe(rta =>{
-      this.token = rta.access_token
-      console.log(this.token)
-      this.getProfile();
-    })
-  }
-
-  getProfile(){
-    this.authService.profile(this.token)
-    .subscribe(user=>{
-      this.profile = user
-    })
-  }
+  login() {
+    // this.authService.login('dev@dev.com', '123456')
+    // .subscribe(rta => {
+    //   this.token = rta.access_token;
+    //   console.log(this.token);
+    //   this.getProfile();
+    // });
+    this.authService.loginAndGet('dev@dev.com', '123456')
+    .subscribe(user => {
+      this.profile = user;      
+    });
+  }    
 
 }
