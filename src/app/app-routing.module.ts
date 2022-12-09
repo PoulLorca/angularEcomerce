@@ -21,7 +21,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'category',
+    path:'category/:id',
     component: CategoryComponent
   },
   {
@@ -43,10 +43,7 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileComponent
-  },
-  {
-    
-  }
+  }  
 ];
 
 @NgModule({
