@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { tap, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 interface File{
   originalname: string;
@@ -15,7 +16,7 @@ interface File{
 })
 export class FilesService {
 
-  private apiUrl = 'api/files';  //https://young-sands-07814.herokuapp.com/api/products
+  private apiUrl = `${environment.API_URL}/api/files`;;  //https://young-sands-07814.herokuapp.com/api/products
 
   constructor(
     private http: HttpClient

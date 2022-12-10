@@ -6,12 +6,14 @@ import { BehaviorSubject } from 'rxjs';
 import { Auth } from '../models/auth.model';
 import { User } from '../models/user.model';
 import { TokenService } from './token.service';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'api/auth'; 
+  private apiUrl = `${environment.API_URL}/api/auth`; 
   private user = new BehaviorSubject<User | null>(null);
   user$ = this.user.asObservable();
 

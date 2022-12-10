@@ -5,13 +5,14 @@ import { catchError, retry, map } from 'rxjs/operators'
 import { throwError } from 'rxjs';
 
 import { checkTime } from '../interceptors/time.interceptor';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  private apiUrl = 'api';  //https://young-sands-07814.herokuapp.com/api/products
+  private apiUrl = `${environment.API_URL}/api`;  //https://young-sands-07814.herokuapp.com/api/products
 
   constructor(
     private http: HttpClient
