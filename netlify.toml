@@ -1,0 +1,7 @@
+[build]
+  publish = “dist/e-comerce”
+  command = “ng build”
+[[redirects]]
+  from = “/*”
+  to = “/index.html”
+  status = 200
