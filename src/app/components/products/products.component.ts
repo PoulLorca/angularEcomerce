@@ -13,9 +13,16 @@ import { EventEmitter } from '@angular/core';
 })
 export class ProductsComponent  {
 
-  myShoppingCart: Product[] = [];
-  total = 0;
+  //  @Input() productId: string | null = null;
+  @Input() 
+  set productId(id: string | null) {
+    if(id){      
+      this.onShowDetail(id);
+    }
+  }
   @Input() products: Product[] = [];  
+  myShoppingCart: Product[] = [];
+  total = 0;  
   showProductDetail = false;
   productChosen: Product = {
     id: '',
@@ -50,10 +57,12 @@ export class ProductsComponent  {
   
   onShowDetail(id: string) {
     this.statusDetail = 'loading'
+    if (!this.showProductDetail){
+      this.showProductDetail = true
+    }
     this.productsService.getProduct(id)
     .subscribe({
-      next: (data) => {
-      this.toggleProductDetail();
+      next: (data) => {      
       this.productChosen = data;
       this.statusDetail = 'success'
     },
