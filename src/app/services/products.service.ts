@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams, HttpStatusCode } from '@angular/common/http';
-import { Product, CreateProductDTO, UpdateProductDTO } from '../components/models/product.model';
+import { Product, CreateProductDTO, UpdateProductDTO } from '../models/product.model';
 import { catchError, retry, map } from 'rxjs/operators'
 import { throwError } from 'rxjs';
 

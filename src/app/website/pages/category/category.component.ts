@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import { ProductsService } from 'src/app/services/products.service';
-import { Product } from 'src/app/components/models/product.model';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-category',

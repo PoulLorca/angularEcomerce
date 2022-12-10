@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { switchMap, tap } from 'rxjs/operators';
 
-import { Auth } from '../components/models/auth.model';
-import { User } from '../components/models/user.model';
+import { Auth } from '../models/auth.model';
+import { User } from '../models/user.model';
 import { TokenService } from './token.service';
 
 @Injectable({

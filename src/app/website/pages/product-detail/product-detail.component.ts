@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/components/models/product.model';
+import { Product } from 'src/app/models/product.model';
 import { switchMap } from 'rxjs/operators';
 import { ProductsService } from 'src/app/services/products.service';
 
