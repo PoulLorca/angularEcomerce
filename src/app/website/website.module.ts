@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
-import { CategoryComponent } from './pages/category/category.component';
 import { MyCartComponent } from './pages/my-cart/my-cart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -22,8 +21,7 @@ import { WebsiteRoutingModule } from './website-routing.module';
 @NgModule({
   declarations: [    
     NavComponent,
-    HomeComponent,    
-    CategoryComponent,
+    HomeComponent,        
     MyCartComponent,
     LoginComponent,
     RegisterComponent,
@@ -36,7 +34,7 @@ import { WebsiteRoutingModule } from './website-routing.module';
     CommonModule,
     WebsiteRoutingModule,
     SwiperModule,
-    SharedModule
+    SharedModule,    
   ]
 })
 export class WebsiteModule { }
