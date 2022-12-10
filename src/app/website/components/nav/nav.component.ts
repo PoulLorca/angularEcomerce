@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from '../../../models/user.model';
@@ -12,47 +13,51 @@ import { Category } from '../../../models/product.model';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
   activeMenu = false;
-  counter =  0;  
+  counter = 0;
   profile: User | null = null;
-  categories: Category[] = []; 
+  categories: Category[] = [];
 
   constructor(
     private storeService: StoreService,
     private authService: AuthService,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.storeService.myCart$.subscribe(products => {
-      this.counter = products.length
+      this.counter = products.length;
+    });
+    this.getAllCategories();
+    this.authService.user$
+    .subscribe(data => {
+      this.profile = data;
     })
-    this.getAllCateories();
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.activeMenu = !this.activeMenu;
   }
 
   login() {
-    // this.authService.login('dev@dev.com', '123456')
-    // .subscribe(rta => {
-    //   this.token = rta.access_token;
-    //   console.log(this.token);
-    //   this.getProfile();
-    // });
-    this.authService.loginAndGet('dev@dev.com', '123456')
-    .subscribe(user => {
-      this.profile = user;      
+    this.authService.loginAndGet('john@mail.com', 'changeme')
+    .subscribe(() => {
+      this.router.navigate(['/profile']);
     });
-  }    
+  }
 
-  getAllCateories(){    
+  getAllCategories() {
     this.categoriesService.getAll()
-    .subscribe(data=>{
-      this.categories = data
-    })
+    .subscribe(data => {
+      this.categories = data;
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.profile = null;
+    this.router.navigate(['/home']);
   }
 
 }
